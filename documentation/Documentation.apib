@@ -1,0 +1,1627 @@
+HOST: http:localhost:3000
+
+# Nutritionix REST API
+
+### Steven Putra Tanoto - 03082180016 - 18TI2
+#### Rest API Of Food Nutrition and Exercise Calories Burned Estimation
+#### Using Nutritionix API V2 https://developer.nutritionix.com/docs/v2
+
+# Group Authentication
+- To create new access key so we can access resource from API.
+- Access Token is a Bearer Token on Authorization Header.
+- To get token you can call ```/login``` endpoint.
+
+```Authorization : Bearer {token}```
+## Login to get Token  [POST /api/login]
++ Request
+
+    + Attributes
+        + user (required,string) - User Credentials
+
+    + Body
+
+            {
+                "user" : "steven"
+            }
+
++ Response 200 (text/html)
+
+    #### Success body response
+    + Body
+
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic3RldmVuIiwiaWF0IjoxNjIwMDMyMzYxfQ.-ax3xxnf_cI_ApaYOXiYBDaDfGjz4WTWVx_Lt4U9KkM
+
+# Group Get Nutrition Info By Food with Natural Languange Processing
+    - Get detailed nutrient breakdown of any natural language text
+
+## Get Nutrition with NLP [POST /api/food/natural/{keyword}]
+
++ Parameters
+    
+    + keyword (string) - thing that we eat with how much we eat and what we eat (example: eating 3 apple or eating 3 apple and 1 oranges)
+
++ Request
+
+    + Attributes (Auth)
+
+    + Headers
+
+            Authorization: Bearer {token}
+    
++ Response 200 (application/json)
+
+    #### Success body response
+    + Body
+
+            [
+                {
+                    "food_name": "apple",
+                    "brand_name": null,
+                    "serving_qty": 3,
+                    "serving_unit": "medium (3\" dia)",
+                    "serving_weight_grams": 546,
+                    "nf_calories": 283.92,
+                    "nf_total_fat": 0.93,
+                    "nf_saturated_fat": 0.15,
+                    "nf_cholesterol": 0,
+                    "nf_sodium": 5.46,
+                    "nf_total_carbohydrate": 75.4,
+                    "nf_dietary_fiber": 13.1,
+                    "nf_sugars": 56.73,
+                    "nf_protein": 1.42,
+                    "nf_potassium": 584.22,
+                    "nf_p": 60.06,
+                    "full_nutrients": [
+                        {
+                            "attr_id": 203,
+                            "value": 1.4196
+                        },
+                        {
+                            "attr_id": 204,
+                            "value": 0.9282
+                        },
+                        {
+                            "attr_id": 205,
+                            "value": 75.4026
+                        },
+                        {
+                            "attr_id": 207,
+                            "value": 1.0374
+                        },
+                        {
+                            "attr_id": 208,
+                            "value": 283.92
+                        },
+                        {
+                            "attr_id": 209,
+                            "value": 0.273
+                        },
+                        {
+                            "attr_id": 210,
+                            "value": 11.3022
+                        },
+                        {
+                            "attr_id": 211,
+                            "value": 13.2678
+                        },
+                        {
+                            "attr_id": 212,
+                            "value": 32.214
+                        },
+                        {
+                            "attr_id": 213,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 214,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 221,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 255,
+                            "value": 467.1576
+                        },
+                        {
+                            "attr_id": 262,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 263,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 268,
+                            "value": 1190.28
+                        },
+                        {
+                            "attr_id": 269,
+                            "value": 56.7294
+                        },
+                        {
+                            "attr_id": 287,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 291,
+                            "value": 13.104
+                        },
+                        {
+                            "attr_id": 301,
+                            "value": 32.76
+                        },
+                        {
+                            "attr_id": 303,
+                            "value": 0.6552
+                        },
+                        {
+                            "attr_id": 304,
+                            "value": 27.3
+                        },
+                        {
+                            "attr_id": 305,
+                            "value": 60.06
+                        },
+                        {
+                            "attr_id": 306,
+                            "value": 584.22
+                        },
+                        {
+                            "attr_id": 307,
+                            "value": 5.46
+                        },
+                        {
+                            "attr_id": 309,
+                            "value": 0.2184
+                        },
+                        {
+                            "attr_id": 312,
+                            "value": 0.1474
+                        },
+                        {
+                            "attr_id": 313,
+                            "value": 18.018
+                        },
+                        {
+                            "attr_id": 315,
+                            "value": 0.1911
+                        },
+                        {
+                            "attr_id": 317,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 318,
+                            "value": 294.84
+                        },
+                        {
+                            "attr_id": 319,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 320,
+                            "value": 16.38
+                        },
+                        {
+                            "attr_id": 321,
+                            "value": 147.42
+                        },
+                        {
+                            "attr_id": 322,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 323,
+                            "value": 0.9828
+                        },
+                        {
+                            "attr_id": 324,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 328,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 334,
+                            "value": 60.06
+                        },
+                        {
+                            "attr_id": 337,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 338,
+                            "value": 158.34
+                        },
+                        {
+                            "attr_id": 341,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 342,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 343,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 401,
+                            "value": 25.116
+                        },
+                        {
+                            "attr_id": 404,
+                            "value": 0.0928
+                        },
+                        {
+                            "attr_id": 405,
+                            "value": 0.142
+                        },
+                        {
+                            "attr_id": 406,
+                            "value": 0.4969
+                        },
+                        {
+                            "attr_id": 410,
+                            "value": 0.3331
+                        },
+                        {
+                            "attr_id": 415,
+                            "value": 0.2239
+                        },
+                        {
+                            "attr_id": 417,
+                            "value": 16.38
+                        },
+                        {
+                            "attr_id": 418,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 421,
+                            "value": 18.564
+                        },
+                        {
+                            "attr_id": 429,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 430,
+                            "value": 12.012
+                        },
+                        {
+                            "attr_id": 431,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 432,
+                            "value": 16.38
+                        },
+                        {
+                            "attr_id": 435,
+                            "value": 16.38
+                        },
+                        {
+                            "attr_id": 454,
+                            "value": 0.546
+                        },
+                        {
+                            "attr_id": 501,
+                            "value": 0.0055
+                        },
+                        {
+                            "attr_id": 502,
+                            "value": 0.0328
+                        },
+                        {
+                            "attr_id": 503,
+                            "value": 0.0328
+                        },
+                        {
+                            "attr_id": 504,
+                            "value": 0.071
+                        },
+                        {
+                            "attr_id": 505,
+                            "value": 0.0655
+                        },
+                        {
+                            "attr_id": 506,
+                            "value": 0.0055
+                        },
+                        {
+                            "attr_id": 507,
+                            "value": 0.0055
+                        },
+                        {
+                            "attr_id": 508,
+                            "value": 0.0328
+                        },
+                        {
+                            "attr_id": 509,
+                            "value": 0.0055
+                        },
+                        {
+                            "attr_id": 510,
+                            "value": 0.0655
+                        },
+                        {
+                            "attr_id": 511,
+                            "value": 0.0328
+                        },
+                        {
+                            "attr_id": 512,
+                            "value": 0.0273
+                        },
+                        {
+                            "attr_id": 513,
+                            "value": 0.0601
+                        },
+                        {
+                            "attr_id": 514,
+                            "value": 0.3822
+                        },
+                        {
+                            "attr_id": 515,
+                            "value": 0.1365
+                        },
+                        {
+                            "attr_id": 516,
+                            "value": 0.0491
+                        },
+                        {
+                            "attr_id": 517,
+                            "value": 0.0328
+                        },
+                        {
+                            "attr_id": 518,
+                            "value": 0.0546
+                        },
+                        {
+                            "attr_id": 601,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 605,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 606,
+                            "value": 0.1529
+                        },
+                        {
+                            "attr_id": 607,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 608,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 609,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 610,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 611,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 612,
+                            "value": 0.0055
+                        },
+                        {
+                            "attr_id": 613,
+                            "value": 0.131
+                        },
+                        {
+                            "attr_id": 614,
+                            "value": 0.0164
+                        },
+                        {
+                            "attr_id": 617,
+                            "value": 0.0382
+                        },
+                        {
+                            "attr_id": 618,
+                            "value": 0.2348
+                        },
+                        {
+                            "attr_id": 619,
+                            "value": 0.0491
+                        },
+                        {
+                            "attr_id": 620,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 621,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 626,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 627,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 628,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 629,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 630,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 631,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 636,
+                            "value": 65.52
+                        },
+                        {
+                            "attr_id": 645,
+                            "value": 0.0382
+                        },
+                        {
+                            "attr_id": 646,
+                            "value": 0.2785
+                        }
+                    ],
+                    "nix_brand_name": null,
+                    "nix_brand_id": null,
+                    "nix_item_name": null,
+                    "nix_item_id": null,
+                    "upc": null,
+                    "consumed_at": "2021-05-03T12:02:36+00:00",
+                    "metadata": {
+                        "is_raw_food": false
+                    },
+                    "source": 1,
+                    "ndb_no": 9003,
+                    "tags": {
+                        "item": "apple",
+                        "measure": null,
+                        "quantity": "3",
+                        "food_group": 3,
+                        "tag_id": 384
+                    },
+                    "alt_measures": [
+                        {
+                            "serving_weight": 242,
+                            "measure": "NLEA serving",
+                            "seq": 7,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 101,
+                            "measure": "extra small (2-1/2\" dia)",
+                            "seq": 6,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 149,
+                            "measure": "small (2-3/4\" dia)",
+                            "seq": 5,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 182,
+                            "measure": "medium (3\" dia)",
+                            "seq": 4,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 223,
+                            "measure": "large (3-1/4\" dia)",
+                            "seq": 3,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 109,
+                            "measure": "cup slices",
+                            "seq": 2,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 125,
+                            "measure": "cup, quartered or chopped",
+                            "seq": 1,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 28.35,
+                            "measure": "oz",
+                            "seq": 80,
+                            "qty": 1
+                        },
+                        {
+                            "serving_weight": 100,
+                            "measure": "g",
+                            "seq": null,
+                            "qty": 100
+                        }
+                    ],
+                    "lat": null,
+                    "lng": null,
+                    "meal_type": 1,
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg",
+                        "highres": "https://nix-tag-images.s3.amazonaws.com/384_highres.jpg",
+                        "is_user_uploaded": false
+                    },
+                    "sub_recipe": null,
+                    "class_code": null,
+                    "brick_code": null,
+                    "tag_id": null
+                }
+            ]
+
+    + Attributes (array[FoodNatural],fixed-type)
+
+# Group Get List of Food or Fruit Based on Search
+    - Populate any search interface, including autocomplete, with common foods and branded foods from Nutritionix
+    - There is 2 Item : Common and Branded
+        - Common Item : Regular item with no brand
+        - Branded Item : Branded item like subway, or etc
+
+## Get List of Food or Fruit Common Item [GET /api/food/search/common/{name}]
+
++ Parameters
+    
+    + name (string) - name of fruit or food that we want to search
+    
++ Request
+
+    + Attributes (Auth)
+
+    + Headers
+
+            Authorization: Bearer {token}
+    
++ Response 200 (application/json)
+
+    #### Success body response
+    + Body
+
+            [
+                {
+                    "food_name": "apple",
+                    "serving_unit": "medium (3\" dia)",
+                    "tag_name": "apple",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "384",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apples",
+                    "serving_unit": "medium (3\" dia)",
+                    "tag_name": "apple",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "384",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "appletini",
+                    "serving_unit": "cocktail",
+                    "tag_name": "appletini",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "5031",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/5031_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple pie",
+                    "serving_unit": "piece (1/8 of 9\" dia)",
+                    "tag_name": "Apple pie",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "15060",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "applesauce",
+                    "serving_unit": "container",
+                    "tag_name": "apple sauce",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "386",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/386_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "applejuice",
+                    "serving_unit": "cup",
+                    "tag_name": "apple juice",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "385",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/385_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "gala apple",
+                    "serving_unit": "medium",
+                    "tag_name": "gala apple",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "2049",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/2049_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "green apple",
+                    "serving_unit": "medium (3\" dia)",
+                    "tag_name": "green apple",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "8158",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/8158_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple sauce",
+                    "serving_unit": "container",
+                    "tag_name": "apple sauce",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "386",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/386_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple cider",
+                    "serving_unit": "cup",
+                    "tag_name": "apple cider",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "213",
+                    "photo": {
+                        "thumb": "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
+                        "highres": null,
+                        "is_user_uploaded": false
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple juice",
+                    "serving_unit": "cup",
+                    "tag_name": "apple juice",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "385",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/385_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple strudel",
+                    "serving_unit": "Piece",
+                    "tag_name": "apfelstrudel",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "2190",
+                    "photo": {
+                        "thumb": "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
+                        "highres": null,
+                        "is_user_uploaded": false
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple oatmeal",
+                    "serving_unit": "packet",
+                    "tag_name": "apple cinnamon oatmeal",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "3500",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/3500_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "applebees shrimp",
+                    "serving_unit": "serving",
+                    "tag_name": "applebee's shrimp",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "2853",
+                    "photo": {
+                        "thumb": "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
+                        "highres": null,
+                        "is_user_uploaded": false
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "honeycrisp apple",
+                    "serving_unit": "medium (3\" dia)",
+                    "tag_name": "honeycrisp apple",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "7827",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/7827_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "honeycrisp apples",
+                    "serving_unit": "medium (3\" dia)",
+                    "tag_name": "honeycrisp apple",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "7827",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/7827_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "apple cider vinegar",
+                    "serving_unit": "tbsp",
+                    "tag_name": "apple cider vinegar",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "479",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/479_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "strawberry applesauce",
+                    "serving_unit": "container",
+                    "tag_name": "strawberry applesauce",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "8044",
+                    "photo": {
+                        "thumb": "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
+                        "highres": null,
+                        "is_user_uploaded": false
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "unsweetened applesauce",
+                    "serving_unit": "cup",
+                    "tag_name": "unsweetened applesauce",
+                    "serving_qty": 1,
+                    "common_type": null,
+                    "tag_id": "2890",
+                    "photo": {
+                        "thumb": "https://nix-tag-images.s3.amazonaws.com/2890_thumb.jpg"
+                    },
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "evans apples green apples",
+                    "serving_unit": "medium apple",
+                    "tag_name": "evans apples green apples",
+                    "serving_qty": 1,
+                    "common_type": 2,
+                    "tag_id": "11453",
+                    "photo": {
+                        "thumb": "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
+                        "highres": null,
+                        "is_user_uploaded": false
+                    },
+                    "locale": "en_US"
+                }
+            ]
+
+    + Attributes (array[FoodSearchCommon],fixed-type)
+        
+        
+
+## Get List of Food or Fruit Branded Item [GET /api/food/search/branded/{name}]
+
++ Parameters
+    
+    + name (string) - name of fruit or food that we want to search
+    
++ Request
+
+    + Attributes (Auth)
+
+    + Headers
+
+            Authorization: Bearer {token}
+    
++ Response 200 (application/json)
+
+    #### Success body response
+    + Body
+    
+            [
+                {
+                    "food_name": "Rice Cakes, Apple Cinnamon",
+                    "serving_unit": "cake",
+                    "nix_brand_id": "51db37b5176fe9790a898851",
+                    "brand_name_item_name": "Quaker Rice Cakes, Apple Cinnamon",
+                    "serving_qty": 1,
+                    "nf_calories": 50,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/6071aebc34e85a0008ed52a2.jpeg"
+                    },
+                    "brand_name": "Quaker",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c36eaf97c3e69de4b09495",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Savory Turkey Breakfast Sausage",
+                    "serving_unit": "links",
+                    "nix_brand_id": "51db37b5176fe9790a8988b3",
+                    "brand_name_item_name": "Applegate Savory Turkey Breakfast Sausage",
+                    "serving_qty": 3,
+                    "nf_calories": 90,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/53600a3625b29d1111f06903.jpeg"
+                    },
+                    "brand_name": "Applegate",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c36afa97c3e69de4b07658",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Chicken & Maple Breakfast Sausage",
+                    "serving_unit": "links",
+                    "nix_brand_id": "51db37b5176fe9790a8988b3",
+                    "brand_name_item_name": "Applegate Chicken & Maple Breakfast Sausage",
+                    "serving_qty": 3,
+                    "nf_calories": 110,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/53fb42bff41721ed4d485eb2.jpeg"
+                    },
+                    "brand_name": "Applegate",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c36af597c3e69de4b07630",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Applesauce, Apple",
+                    "serving_unit": "container",
+                    "nix_brand_id": "51db37b5176fe9790a89884d",
+                    "brand_name_item_name": "Mott's Applesauce, Apple",
+                    "serving_qty": 1,
+                    "nf_calories": 90,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/58abea24cb31b77473e68b10.jpeg"
+                    },
+                    "brand_name": "Mott's",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51d2fc4ccc9bff111580e279",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Nutri Grain Bar, Apple Cinnamon",
+                    "serving_unit": "bar",
+                    "nix_brand_id": "51db37b0176fe9790a8983d8",
+                    "brand_name_item_name": "Kellogg's Nutri Grain Bar, Apple Cinnamon",
+                    "serving_qty": 1,
+                    "nf_calories": 130,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5c8b53964e2286f478842646.jpeg"
+                    },
+                    "brand_name": "Kellogg's",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c3bb7a97c3e6d8d3b46985",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Chicken & Apple Breakfast Sausage",
+                    "serving_unit": "links",
+                    "nix_brand_id": "51db37b5176fe9790a8988b3",
+                    "brand_name_item_name": "Applegate Chicken & Apple Breakfast Sausage",
+                    "serving_qty": 3,
+                    "nf_calories": 120,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/53fb43268e64106e13ca2b86.jpeg"
+                    },
+                    "brand_name": "Applegate",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c36add97c3e69de4b07586",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Caramel Apple Pie Greek Yogurt",
+                    "serving_unit": "container",
+                    "nix_brand_id": "54de6c551e0d973c7da3c5b9",
+                    "brand_name_item_name": "Dannon Light & Fit Caramel Apple Pie Greek Yogurt",
+                    "serving_qty": 1,
+                    "nf_calories": 80,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/578706f4e0e3cf6c5c20d2d9.jpeg"
+                    },
+                    "brand_name": "Dannon Light & Fit",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "578707998eb128fc315a5be2",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Turkey Bacon",
+                    "serving_unit": "slice",
+                    "nix_brand_id": "528394df5953f4020000000a",
+                    "brand_name_item_name": "Appleton Farms Turkey Bacon",
+                    "serving_qty": 1,
+                    "nf_calories": 30,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5e43a3a5a2ec995f2cff7ca7.jpeg"
+                    },
+                    "brand_name": "Appleton Farms",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "5e43a3a10fb853202b606257",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "GoGo Squeez, Apple Sauce on the Go, Apple Cinnamon",
+                    "serving_unit": "pouch",
+                    "nix_brand_id": "51db37b1176fe9790a898495",
+                    "brand_name_item_name": "Materne GoGo Squeez, Apple Sauce on the Go, Apple Cinnamon",
+                    "serving_qty": 1,
+                    "nf_calories": 70,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/53d8f1e1cc4c251f3ddf62f8.jpeg"
+                    },
+                    "brand_name": "Materne",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "53d8ef76cc4c251f3ddf61b3",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Apple Cider Vinegar Gummies",
+                    "serving_unit": "gummy",
+                    "nix_brand_id": "5d20485e8f6e5ffa79881b6b",
+                    "brand_name_item_name": "Goli Nutrition Apple Cider Vinegar Gummies",
+                    "serving_qty": 1,
+                    "nf_calories": 15,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5e200e99dab6604f665a011b.jpeg"
+                    },
+                    "brand_name": "Goli Nutrition",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "5e200e9669e25d05026c2b7a",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Uncured Black Forest Ham",
+                    "serving_unit": "slices",
+                    "nix_brand_id": "51db37b5176fe9790a8988b3",
+                    "brand_name_item_name": "Applegate Uncured Black Forest Ham",
+                    "serving_qty": 2,
+                    "nf_calories": 70,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5395b820398dc8456519c43d.jpeg"
+                    },
+                    "brand_name": "Applegate",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c36add97c3e69de4b0758a",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Apple Banana Applesauce",
+                    "serving_unit": "pouch",
+                    "nix_brand_id": "537b95f22de4324f30750892",
+                    "brand_name_item_name": "GoGo Squeez Apple Banana Applesauce",
+                    "serving_qty": 1,
+                    "nf_calories": 70,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5412fd3db165e2bd76991032.jpeg"
+                    },
+                    "brand_name": "GoGo Squeez",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "5412fbdf92adfdc17bf3a36b",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Apple Cinnamon with Oats Protein Shake",
+                    "serving_unit": "shake",
+                    "nix_brand_id": "529d0c3dae976a000000001b",
+                    "brand_name_item_name": "Premier Protein Apple Cinnamon with Oats Protein Shake",
+                    "serving_qty": 1,
+                    "nf_calories": 150,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5e3d0fd3932e5e39502d1fb4.jpeg"
+                    },
+                    "brand_name": "Premier Protein",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "5e3d0fd029ea4649517e8a16",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Chicken & Maple Breakfast Sausage Patties",
+                    "serving_unit": "patty",
+                    "nix_brand_id": "526831043203b9c33900009c",
+                    "brand_name_item_name": "Applegate Naturals Chicken & Maple Breakfast Sausage Patties",
+                    "serving_qty": 1,
+                    "nf_calories": 60,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/53fb4323ccd973a02c4fbbd3.jpeg"
+                    },
+                    "brand_name": "Applegate Naturals",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "53fb41652cc4f0764e1de018",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Cinnamon & Apple with Oats Protein Shake",
+                    "serving_unit": "shake",
+                    "nix_brand_id": "529d0c3dae976a000000001b",
+                    "brand_name_item_name": "Premier Protein Cinnamon & Apple with Oats Protein Shake",
+                    "serving_qty": 1,
+                    "nf_calories": 150,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5e3bbcec16499bfc40c4117a.jpeg"
+                    },
+                    "brand_name": "Premier Protein",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "5e367905e172df44790feac2",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "GoGo Squeez, Appleapple",
+                    "serving_unit": "pouch",
+                    "nix_brand_id": "51db37b1176fe9790a898495",
+                    "brand_name_item_name": "Materne GoGo Squeez, Appleapple",
+                    "serving_qty": 1,
+                    "nf_calories": 70,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5df1e5ca3135accd5be66bb2.jpeg"
+                    },
+                    "brand_name": "Materne",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "537b960a2de4324f307508a3",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Turkey Breast, Oven Roasted",
+                    "serving_unit": "slices",
+                    "nix_brand_id": "526831043203b9c33900009c",
+                    "brand_name_item_name": "Applegate Naturals Turkey Breast, Oven Roasted",
+                    "serving_qty": 2,
+                    "nf_calories": 50,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5e5e052d3a780e240b486a12.jpeg"
+                    },
+                    "brand_name": "Applegate Naturals",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51c36af997c3e69de4b07652",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "GoGo Squeez Organic Applesauce, Apple Apple",
+                    "serving_unit": "pouch",
+                    "nix_brand_id": "51db37b1176fe9790a898495",
+                    "brand_name_item_name": "Materne GoGo Squeez Organic Applesauce, Apple Apple",
+                    "serving_qty": 1,
+                    "nf_calories": 60,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/5505a7969606d9ac20592ebf.jpeg"
+                    },
+                    "brand_name": "Materne",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "5505a4f2dfc7e5791f57948d",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Instant Oatmeal, Apples & Cinnamon",
+                    "serving_unit": "packet",
+                    "nix_brand_id": "51db37b5176fe9790a898851",
+                    "brand_name_item_name": "Quaker Instant Oatmeal, Apples & Cinnamon",
+                    "serving_qty": 1,
+                    "nf_calories": 160,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/60896a7217629e0006595141.jpeg"
+                    },
+                    "brand_name": "Quaker",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "51d3004ccc9bff111580fd1d",
+                    "locale": "en_US"
+                },
+                {
+                    "food_name": "Chicken & Sage Breakfast Sausage",
+                    "serving_unit": "links",
+                    "nix_brand_id": "526831043203b9c33900009c",
+                    "brand_name_item_name": "Applegate Naturals Chicken & Sage Breakfast Sausage",
+                    "serving_qty": 3,
+                    "nf_calories": 110,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/53fb42c12cc4f0764e1de076.jpeg"
+                    },
+                    "brand_name": "Applegate Naturals",
+                    "region": 1,
+                    "brand_type": 2,
+                    "nix_item_id": "53fb41cfccd973a02c4fbb7e",
+                    "locale": "en_US"
+                }
+            ]
+
+    + Attributes (array[FoodSearchBranded],fixed-type)
+       
+
+# Group Food Detail by NixID Only for Branded Item
+    - Look up the nutrition information for any branded food item by the nix_item_id
+    - For common food / not branded item detail please use Get Nutrition with NLP API
+    - To get nix_item_id first you have to get nix_item_id from search result, where you can make a request to Get List of Food or Fruit Branded Item API and get nix_item_id
+
+## Get Food Detail by nix_item_id [GET /api/food/detail/{nixid}]
+
++ Parameters
+    
+    + nixid (string) - nix_item_id (Branded Item ID, example: 51c36eaf97c3e69de4b09495)
+    
++ Request
+
+    + Attributes (Auth)
+
+    + Headers
+
+            Authorization: Bearer {token}
+    
++ Response 200 (application/json)
+
+    #### Success body response
+    + Body
+    
+            [
+                {
+                    "food_name": "Rice Cakes, Apple Cinnamon",
+                    "brand_name": "Quaker",
+                    "serving_qty": 1,
+                    "serving_unit": "cake",
+                    "serving_weight_grams": 13,
+                    "nf_calories": 50,
+                    "nf_total_fat": 0,
+                    "nf_saturated_fat": 0,
+                    "nf_cholesterol": 0,
+                    "nf_sodium": 0,
+                    "nf_total_carbohydrate": 11,
+                    "nf_dietary_fiber": 0,
+                    "nf_sugars": 3,
+                    "nf_protein": 0.5,
+                    "nf_potassium": 30,
+                    "nf_p": null,
+                    "full_nutrients": [
+                        {
+                            "attr_id": 203,
+                            "value": 0.5
+                        },
+                        {
+                            "attr_id": 204,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 205,
+                            "value": 11
+                        },
+                        {
+                            "attr_id": 208,
+                            "value": 50
+                        },
+                        {
+                            "attr_id": 269,
+                            "value": 3
+                        },
+                        {
+                            "attr_id": 291,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 301,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 303,
+                            "value": 0.2
+                        },
+                        {
+                            "attr_id": 306,
+                            "value": 30
+                        },
+                        {
+                            "attr_id": 307,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 324,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 328,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 539,
+                            "value": 3
+                        },
+                        {
+                            "attr_id": 601,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 605,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 606,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 645,
+                            "value": 0
+                        },
+                        {
+                            "attr_id": 646,
+                            "value": 0
+                        }
+                    ],
+                    "nix_brand_name": "Quaker",
+                    "nix_brand_id": "51db37b5176fe9790a898851",
+                    "nix_item_name": "Rice Cakes, Apple Cinnamon",
+                    "nix_item_id": "51c36eaf97c3e69de4b09495",
+                    "metadata": {},
+                    "source": 8,
+                    "ndb_no": null,
+                    "tags": null,
+                    "alt_measures": null,
+                    "lat": null,
+                    "lng": null,
+                    "photo": {
+                        "thumb": "https://nutritionix-api.s3.amazonaws.com/6071aebc34e85a0008ed52a2.jpeg",
+                        "highres": null,
+                        "is_user_uploaded": false
+                    },
+                    "note": null,
+                    "class_code": null,
+                    "brick_code": null,
+                    "tag_id": null,
+                    "updated_at": "2021-04-10T13:57:16+00:00",
+                    "nf_ingredient_statement": "Whole Grain Brown Rice, Sugar, Fructose, Maltodextrin, Natural Flavor, Cinnamon, Soy Lecithin. Gluten free."
+                }
+            ]
+
+    + Attributes (array[FoodDetailByNix], fixed-type)
+       
+
+# Group Get Calories Burned when Exercise with Natural Languange Processing
+- Estimate calories burned for various exercises using natural language.
+
+## Get Calories Burned when Exercise  [POST /api/exercise/natural]
++ Request
+
+    + Attributes(Auth)
+        + query(required,string) - Exercise activity that we do
+        + gender(string) - Male/Female
+        + weight_kg(number) - Weight
+        + height_cm(number) - Height
+        + age(number) - Age
+        
+    + Headers
+
+            Authorization: Bearer {token}
+            
+    + Body
+
+            {
+                 "query":"ran 3 miles",
+                 "gender":"female",
+                 "weight_kg":72.5,
+                 "height_cm":167.64,
+                 "age":30
+            }
+    
++ Response 200 (application/json)
+
+    #### Success body response
+    + Body
+    
+            [
+                {
+                    "tag_id": 317,
+                    "user_input": "ran",
+                    "duration_min": 30.02,
+                    "met": 9.8,
+                    "nf_calories": 355.49,
+                    "photo": {
+                        "highres": "https://d2xdmhkmkbyw75.cloudfront.net/exercise/317_highres.jpg",
+                        "thumb": "https://d2xdmhkmkbyw75.cloudfront.net/exercise/317_thumb.jpg",
+                        "is_user_uploaded": false
+                    },
+                    "compendium_code": 12050,
+                    "name": "running",
+                    "description": null,
+                    "benefits": null
+                }
+            ]
+            
+    + Attributes (array[Exercises],fixed-type)
+       
+
+# Group Get Nearby Restaurant Based On Location
+- Returns a list of restaurant locations near a lat/long coordinate.
+
+## Get Nearby Restaurant Based On Location  [GET /api/restaurant/nearby]
++ Request
+
+    + Attributes(Auth)
+        
+    + Headers
+
+            Authorization: Bearer {token}
+            
++ Response 200 (application/json)
+
+    #### Success body response
+    + Body
+    
+            [
+            {
+                "name": "Dunkin' Donuts",
+                "brand_id": "513fbc1283aa2dc80c000021",
+                "fs_id": null,
+                "address": "1210 G ST NW",
+                "address2": null,
+                "city": "Washington",
+                "state": "DC",
+                "country": "US",
+                "zip": "20005",
+                "phone": "+12023477428",
+                "website": "http://www.dunkindonuts.com",
+                "guide": "<p><b id=\"docs-internal-guid-c36d44f9-8358-c0ae-c8b4-6483c7398158\"></b></p><p dir=\"ltr\"><span style=\"color: rgb(0, 0, 0);background-color: transparent;\"><b>Customize your coffee</b></span><br/></p><p dir=\"ltr\">When ordering coffee drinks, hold the sugar and ask for nonfat milk instead of cream or whole milk. If you want to add some flavor, Dunkin' Donuts offers about a half dozen sugar free flavors - try adding one!</p><p dir=\"ltr\"><span style=\"color: rgb(0, 0, 0);background-color: transparent;\"><b>Slim sandwiches</b></span><br/></p><p dir=\"ltr\"><span style=\"color: #000000;background-color: transparent;\">They may be named after their donuts, but Dunkin' Donuts offers some great lower calorie breakfast sandwiches. The Egg White Flatbread and Egg &amp; Cheese English Muffin sandwiches each clock in with 300 calories or less. For even fewer calories, try a slim 150-calorie Wake Up Wrap.</span></p><p dir=\"ltr\"><span style=\"color: #000000;background-color: transparent;\"><b>Smart sweets</b></span></p><p dir=\"ltr\"><span style=\"color: #000000;background-color: transparent;\">If sweet is more your style at breakfast, try the Oatmeal with Dried Fruit Topping. If it's gotta be a donut, stick with a 260-calorie glazed yeast donut or a couple 70-90 calorie Munchkins.</span></p><p></p>",
+                "id": 733214,
+                "lat": 38.89799880981445,
+                "lng": -77.02799987792969,
+                "created_at": "2017-06-26T21:45:26.000Z",
+                "updated_at": "2017-08-20T14:14:14.000Z",
+                "distance_km": 0.04533476033344958
+            }
+            ]
+            
+    + Attributes (array[location],fixed-type)
+       
+
+
+# Group Error Message
+List of error response and message.
+
+
+## InvalidAccessKey
+Error response when provided access key on headers not valid
++ Response <span style="color : red">**400**</span> (application/json)
+
+  ```
+  {
+        "message": "invalid access key",
+        "code": "InvalidAccessKey",
+        "type": "error"
+  }
+  ```
+## InvalidCredentials
+Error response when credentials provided on login not match
++ Response <span style="color : green">**200**</span> (application/json)
+
+    ```
+    {
+      "message": "credentials provided not match",
+      "code": "InvalidCredentials",
+      "type": "error",
+    }
+    ```
+## **Attributes**
+```
+  {
+    "message" : {
+        "type" : "string",
+        "description": "message or description error response"
+    },
+    "code" : {
+        "type" : "string",
+        "description": "Error code",
+    },
+    "type" : {
+        "type": "string"
+        "description": "Response type enum [error,warn,info]"
+    }
+  }
+```
+
+## Data Structures
+
+### ErrorObject (object)
++ message (string) - Error message
++ code (string) - Error code
++ type (string) - Error type
+
+### Auth (object)
++  token (string) - Bearer token auth (get from /login endpoint)
+
+### FoodNatural (object)
++ food_name(string) - Food or Fruit name
++ brand_name(string) - Food or Fruit brand name
++ serving_qty(number) - Number of Quantity food or fruit we eat
++ serving_unit(string) - Serving unit
++ serving_weight_grams(number) - Number of Weight we eat in grams
++ nf_calories(number) - Number of total calories we eat
++ nf_total_fat(number) - Number of total fat we eat
++ nf_saturated_fat(number) - Number of total saturated fat we eat
++ nf_cholestrol(number) - Number of total cholestrol we eat
++ nf_sodium(number) - Number of total sodium we eat
++ nf_total_carbohydrate(number) - Number of total carbohydrate we eat
++ nf_dietary_fiber(number) - Number of total dietary fiber we eat
++ nf_sugars(number) - Number of total sugar we eat
++ nf_protein(number) - Number of total protein we eat
++ nf_potassium(number) - Number of total potassium we eat
++ nf_p(number) - Number of total phosphorus we eat
++ full_nutrients(array) - Array of object that contain detailed nutrients of food we eat
++ nix_brand_name(string) - Food or Fruit brand name if branded
++ nix_brand_id(number) - Food or Fruit brand id if branded
++ nix_item_name(string) - Food or fruit name if branded
++ nix_item_id(number) - Food or Fruit id if branded
++ upc(string)
++ consumed_at(string) - When we consume food or fruit
++ metadata(object) - Contain food metadata is raw food or not
++ source(number)
++ ndb_no(number)
++ tags(object) - Contain food tags includes (item, measure, quantity, food group, tagid)
++ alt_measures(array) - Array of object contain serving measure
++ lat(number) - Latitude
++ lng(number) - Longtitude
++ meal_type(number) - Type of meal we eat
++ photo(object) - Array of object contain photo thumb, highres, and is_user_uploaded
++ sub_recipe(number)
++ class_code(number)
++ brick_code(number)
++ tag_id(number)
+
+### FoodSearchCommon (object)
++ food_name(string) - Food or Fruit name
++ serving_unit(string) - Serving unit
++ tag_name - Tag name for query search result
++ serving_qty(number) - Number of quantity of Food or Fruit
++ common_type(number)
++ tag_id(number) - Tag id for query search result
++ photo(object) - Array of object contain photo thumb, highres, and is_user_uploaded
++ locale(string) - Region Language of Food or Fruit
+
+### FoodSearchBranded (object)
++ food_name(string) - Food or Fruit name
++ serving_unit(string) - Serving unit
++ nix_brand_id(string) - Food or Fruit Brand ID
++ brand_name_item_name(string) - Food or Fruit name given by the Brand
++ serving_qty(number) - Number of quantity of Food or Fruit
++ nf_calories(number) - Number of calories in food or fruit
++ photo(object) - Array of object contain photo thumb
++ brand_name(string) - Food or Fruit Brand Name
++ region(number) - Food or Fruit Region ID
++ brand_type(number) - Brand Type
++ nix_item_id(string) - Food or Fruit Item Brand ID
++ locale(string) - Region Language of Food or Fruit
+
+### FoodDetailByNix (object)
++ food_name(string) - Food or Fruit name
++ brand_name(string) - Food or Fruit brand name
++ serving_qty(number) - Number of Quantity food or fruit we eat
++ serving_unit(string) - Serving unit
++ serving_weight_grams(number) - Number of Weight we eat in grams
++ nf_calories(number) - Number of total calories we eat
++ nf_total_fat(number) - Number of total fat we eat
++ nf_saturated_fat(number) - Number of total saturated fat we eat
++ nf_cholestrol(number) - Number of total cholestrol we eat
++ nf_sodium(number) - Number of total sodium we eat
++ nf_total_carbohydrate(number) - Number of total carbohydrate we eat
++ nf_dietary_fiber(number) - Number of total dietary fiber we eat
++ nf_sugars(number) - Number of total sugar we eat
++ nf_protein(number) - Number of total protein we eat
++ nf_potassium(number) - Number of total potassium we eat
++ nf_p(number) - Number of total phosphorus we eat
++ full_nutrients(array) - Array of object that contain detailed nutrients of food we eat
++ nix_brand_name(string) - Food or Fruit brand name if branded
++ nix_brand_id(number) - Food or Fruit brand id if branded
++ nix_item_name(string) - Food or fruit name if branded
++ nix_item_id(number) - Food or Fruit id if branded
++ metadata(object) - Contain food metadata is raw food or not
++ source(number)
++ ndb_no(number)
++ tags(object) - Contain food tags includes (item, measure, quantity, food group, tagid)
++ alt_measures(array) - Array of object contain serving measure
++ lat(number) - Latitude
++ lng(number) - Longtitude
++ photo(object) - Array of object contain photo thumb, highres, and is_user_uploaded
++ note(string)
++ class_code(number)
++ brick_code(number)
++ tag_id(number)   
++ updated_at(string)
++ nf_ingredient_statement(string) - Item Ingredient
+
+### Exercises (object)
++ tag_id(number) - Search tag ID
++ user_input(string) - User Exercise Input
++ duration_min(number) - Duration doing exercise
++ met(number)
++ nf_calories(number) - Calories Burned when doing exercise
++ photo(object) - List of object that contain highres, thumb, is_user_uploaded
++ compendium_code(number)
++ name(string) - Exercise activity name
++ description(string) - Exercise activity description
++ benefits(string) - Exercise activity benefits
+
+### Location (object)
++ name(string) - Restaurant Name
++ brand_id(string) - Restaurant ID
++ fs_id(number)
++ address(string) - Restaurant Address
++ address2(string) - Restaurant Address
++ city(string) - Restaurant City
++ state(string) - Restaurant State
++ country(string) - Restaurant Country
++ zip(number) - Restaurant Zip Code
++ phone(number) - Restaurant Phone Number
++ website(string) - Restaurant Website
++ guide(string) 
++ id(number) - Database ID
++ lat(number) - Restaurant Latitude
++ lng(number) - Restaurant Longitude
++ created_at(string) - Input Data Date
++ updated_at(string) - Update Data Date
++ distance_km(number) - Distance from current location
