@@ -16,8 +16,9 @@ API Source from : Nutritionix API V2 https://developer.nutritionix.com/docs/v2
 
 ## Docs
 
--   API Documentation : https://stevenputratanoto.docs.apiary.io/#
--   Architeture Documentation :
+-   API Documentation (Apiary) : https://stevenputratanoto.docs.apiary.io/#
+-   API Documentation (Github) : https://github.com/StevenTannn/NutritionixRESTAPI/blob/master/documentation/API%20Documentation.apib
+-   Architeture Documentation : https://github.com/StevenTannn/NutritionixRESTAPI/blob/master/documentation/Nutritionix%20REST%20API%20Architeture%20Documentation.pdf
 
 ## Requirement
 
